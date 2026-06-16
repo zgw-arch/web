@@ -1,0 +1,357 @@
+/* 全局重置和基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+#k {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-header {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Banner 打字机模块 */
+.banner {
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+#typeText {
+  font-size: 1.2rem;
+  min-height: 30px;
+  margin-bottom: 30px;
+}
+
+#down-arrow {
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* 专业技能模块 */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 40px 0 10px;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+  width: 80px;
+  margin: 0 auto 30px;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.skill-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4facfe;
+  border-radius: 10px;
+}
+
+/* 给不同进度条设置不同宽度 */
+.skill-card:nth-child(1) .progress-fill { width: 80%; }
+.skill-card:nth-child(2) .progress-fill { width: 85%; }
+.skill-card:nth-child(3) .progress-fill { width: 75%; }
+.skill-card:nth-child(4) .progress-fill { width: 70%; }
+
+/* 天气模块 */
+#weatherTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+#weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+#city-name {
+  font-size: 1.2rem;
+}
+
+#detail-btn {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+#c {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 28px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+#c > div {
+  margin-bottom: 24px;
+}
+
+#c > div:last-child {
+  margin-bottom: 0;
+}
+
+#currentTemp {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+#a {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+#b {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+}
+
+#text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* 5天预报 */
+.forecast-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 440px;
+  margin: 20px auto;
+}
+
+.forecast-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 诗词模块 */
+#container {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+#tip {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+#poem {
+  /* 毛玻璃效果 */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* 兼容 Safari */
+  
+  /* 其他样式保持不变 */
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 30px 20px;
+  min-height: 180px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  font-family: "华文行楷", "KaiTi", "楷体", serif;
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 2px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18); /* 增加边框，增强质感 */
+}
+
+#refreshBtn {
+  display: block;
+  margin: 15px auto 0;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+/* 留言板模块 */
+#message {
+  margin: 50px 0;
+}
+
+.fade-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.publishing-box textarea:focus {
+  outline: none;
+  border: 2px solid #c8b6ff; /* 浅紫色边框，和页面风格统一 */
+}
+.publishing-box textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+#sendBtn {
+  background: #4facfe;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.list-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#msgText1 {
+  height: 200px;
+}
+
+
+#getCatBtn {
+  padding: 10px 24px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto;
+}
+#getCatBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+
+/* 外层电视容器：居中+玻璃边框+圆角造型 */
+.cat-tv-box {
+  width: 200px;
+  margin: 20px auto;
+  padding: 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+/* 猫咪图片：内部圆角 */
+#catImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto;
+}
