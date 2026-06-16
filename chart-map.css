@@ -1,12 +1,4 @@
 
-/* 全局页面滚动基础，放在最顶部 */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-y: auto;    /* 允许垂直滚动 */
-  overflow-x: hidden;  /* 禁止横向溢出，不影响上下滑动 */
-}
 
 /* 根容器#k2 毛玻璃边框卡片，限定作用域，不污染页面其他元素 */
 #k2 {
