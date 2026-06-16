@@ -1,0 +1,86 @@
+/* 只引入一个字体文件 */
+@font-face {
+	font-family: "Gwendolyn";
+	src: url("./Gwendolyn-Bold.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.meal-card{
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 24px;
+	border-radius: 18px;
+	background: rgba(255,255,255,0.2);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(220,220,220,0.4);
+}
+h2{
+	text-align: center;
+	margin-bottom: 20px;
+	color: #fff;
+}
+#getMealBtn{
+	width: 100%;
+	padding: 12px;
+	border-radius: 99px;
+	border: none;
+	background: #ff7d45;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+#getMealBtn:hover{
+	background: #ff6a2c;
+}
+#loading{
+	text-align: center;
+	font-size: 15px;
+	color: #fff;
+}
+.hide{
+	display: none;
+}
+#mealImg{
+	width: 100%;
+	border-radius: 12px;
+	margin-bottom: 16px;
+}
+#mealName{
+	font-size: 30px;
+	color: #222;
+	margin-bottom: 12px;font-family: "Gwendolyn", cursive;
+}
+.info-item{
+	padding: 6px 0;
+	font-size: 13px;
+	line-height: 1.4;
+	font-family: "Gwendolyn", cursive;
+}
+.info-item span:first-child{
+	font-weight: bold;
+	color: #fff;
+	font-family: sans-serif;
+}
+.step-wrap{
+	margin-top: 15px;
+}
+.step-wrap h4{
+	margin-bottom: 8px;
+	color: #fff;
+}
+#mealStep{
+	line-height: 1.45;
+	font-size: 10px;
+	color: #fff;
+	white-space: pre-line;
+	font-family: "Gwendolyn", cursive;
+	letter-spacing: 0.3px;.info-item { line-height:1.2; }
+}
