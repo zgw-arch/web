@@ -336,17 +336,18 @@ hr {
 
 
 
-/* 外层电视容器：居中+玻璃边框+圆角造型 */
 .cat-tv-box {
-  width: 500px;
-  margin: 20px auto;
-  padding: 12px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
+   /* 移除固定width:500px，改用max-width限制最大宽度，宽度随内容自适应 */
+   max-width: 500px;
+   width: fit-content;
+   margin: 20px auto;
+   padding: 12px;
+   border-radius: 20px;
+   background: rgba(255, 255, 255, 0.12);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.35);
+ }
 /* 猫咪图片：内部圆角 */
 #catImg {
   width: 100%;
