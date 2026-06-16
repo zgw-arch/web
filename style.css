@@ -134,10 +134,11 @@ hr {
   place-items: center;
   height: 100%;
   font-size: 1.2rem;
-  position: fixed;
+  /* fixed 改为 absolute，跟随页面滚动 */
+  position: absolute;
   left: 200px;
-  top: 0; /* 补充top占满全屏高度，否则height:100%不生效 */
-  pointer-events: none; /* 不干扰页面滚动，可选保留 */
+  top: 0;
+  pointer-events: none;
 }
 
 
