@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="gobang.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="clock.css">
+	<link rel="stylesheet" href="meal.css">
+	<link rel="stylesheet" href="snow.css"><link rel="stylesheet" href="chart-map.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>作品</title>
+</head>
+<body>
+
+
+	<!-- 引入外部JS -->
+
+<script src="snow.js"></script>
+
+
+
+
+<div id="k">
+<header class="page-header">
+  <h1>我的作品</h1>
+</header>
+
+<div class="banner" id="banner">
+  <h1>你好，我是前端<br>开发者</h1>
+  <!-- 打字机容器 -->
+  <p id="typeText"></p>
+  <!-- 删掉访问量那一行 -->
+  <div id="down-arrow">↓</div>
+</div>
+
+<div style="height:50px;"></div>
+
+
+
+<h2>专业技能</h2>
+	 <hr>
+	 <div class="skills-container">
+		 <div class="skill-card">
+			 <h3>HTML基础</h3>
+			 <p>掌握标签，搭建完整页面</p>
+			 <div class="progress-bar">
+				 <div class="progress-fill"></div>
+			 </div>
+		 </div>
+		 <div class="skill-card">
+			 <h3>内容排版</h3>
+			 <p>样式美化、动画、弹性布局</p>
+			 <div class="progress-bar">
+				 <div class="progress-fill"></div>
+			 </div>
+		 </div>
+		 <div class="skill-card">
+			 <h3>页面布局</h3>
+			 <p>划分区域，规划结构</p>
+			 <div class="progress-bar">
+				 <div class="progress-fill"></div>
+			 </div>
+		 </div>
+		 <div class="skill-card">
+			 <h3>静态页面</h3>
+			 <p>独立设计、制作静态页面</p>
+			 <div class="progress-bar">
+				 <div class="progress-fill"></div>
+			 </div>
+		 </div>
+	 </div>
+
+
+<div id="d">
+<p id="weatherTitle">天气项目演示<br>(实时更新)</p>
+
+<div id="weather-header">
+	<div id="city-name">&nbsp&nbsp&nbsp&nbsp&nbsp苏州</div>
+	<button id="detail-btn">城市</button>
+</div>
+
+<!-- 所有内容统一收纳进#c -->
+<div id="c">
+  <div id="currentTemp"></div>
+  <div id="a">
+	<div id="weatherText"></div>
+	<div id="windSpeedType"></div>
+  </div>
+
+  <div id="b">
+	<div id="windSpeedNum"></div>
+	<div id="aqiLevel"></div>
+	<div id="uvIndex"></div>
+  </div>
+
+  <!-- 独立放在#b外面，不会被JS刷新覆盖 -->
+  <div id="text">夜晚查询时紫外线强度为0</div>
+</div>
+<div style="height:10px;"></div>
+<div class="forecast-card">
+  <h3 class="forecast-title">未来5天预报</h3>
+  <div class="forecast-list" id="forecastList"></div>
+</div>
+</div>
+
+<script src="weatherApi.js"></script>
+
+<div style="height:50px;"></div>
+
+
+<div class="clock-card">
+   <div class="time" id="timeBox">00:00:00</div>
+   <div class="date" id="dateBox">加载中...</div>
+ </div>
+ <script src="clock.js"></script>
+
+
+
+
+<div id="k2">
+<div class="wrap">
+	<h3>全国省份热力地图</h3>
+
+	<!-- 自定义单位输入框 -->
+	<div class="set-row">
+		<label>数据单位（例如：K、万、件）</label>
+		<input id="unitInput" value="K" placeholder="自定义数值单位">
+	</div>
+
+	<div class="btn-group">
+		<button id="addRow">+新增省份数据</button>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>省份/城市（如北京、山东或者西藏，不可添加诸如“省”“市”“自治区”等后缀）</th>
+				<th>数值</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+			<tr><td><input value="山东"></td><td><input type="number" value="1200"></td></tr>
+			<tr><td><input value="新疆"></td><td><input type="number" value="800"></td></tr>
+			<tr><td><input value="北京"></td><td><input type="number" value="950"></td></tr>
+			<tr><td><input value="西藏"></td><td><input type="number" value="650"></td></tr>
+			<tr><td><input value="江苏"></td><td><input type="number" value="1400"></td></tr>
+			<tr><td><input value="黑龙江"></td><td><input type="number" value="300"></td></tr>
+		</tbody>
+	</table>
+
+	<button id="renderChart">生成热力地图</button>
+	<div id="mapChart"></div>
+</div>
+
+<!-- 外部渲染配置JS -->
+<script src="./chart-render.js"></script>
+<!-- 页面交互逻辑 -->
+<script>
+const chartDom = document.getElementById('mapChart');
+const myChart = echarts.init(chartDom);
+
+document.getElementById('addRow').onclick = ()=>{
+	const tr = document.createElement('tr');
+	tr.innerHTML = `
+		<td><input placeholder="输入省/市名称"></td>
+		<td><input type="number" placeholder="数值"></td>
+	`;
+	document.getElementById('tableBody').appendChild(tr);
+}
+
+document.getElementById('renderChart').onclick = ()=>{
+	// 获取自定义单位
+	const unit = document.getElementById('unitInput').value.trim() || "";
+	const trList = document.querySelectorAll('#tableBody tr');
+	const data = [];
+	let maxVal = 0;
+	trList.forEach(tr=>{
+		const inputs = tr.querySelectorAll('input');
+		const name = inputs[0].value.trim();
+		const val = Number(inputs[1].value);
+		if(name && !isNaN(val)){
+			data.push({name, value:val});
+			if(val > maxVal) maxVal = val;
+		}
+	})
+	if(data.length === 0){
+		alert("请填写至少一条省份数据");
+		return;
+	}
+	const option = getChartOption(data, maxVal, unit);
+	myChart.setOption(option);
+}
+
+window.addEventListener('resize',()=>myChart.resize());
+</script>
+</div>
+
+
+
+
+
+
+<div id="container">
+<p id="tip">随机诗词展示</p>
+	<!-- 纯空白容器，无样式、无布局渲染 -->
+	<div id="poem"></div>
+	<!-- 引入外部独立的poem.js脚本文件 -->
+	<button id="refreshBtn">更换诗词</button>
+</div>	
+	<script src="poem.js"></script>
+
+
+
+<button id="getCatBtn">点击刷新一只猫猫图片</button>
+<div class="cat-tv-box">
+  <img id="catImg" alt="猫咪图片" style="width: 150px; height: 150px; object-fit: cover;">
+</div>
+<script src="cat.js"></script>
+
+
+<div class="meal-card">
+		<h2>随机美食食谱</h2>
+		<button id="getMealBtn">点击刷新随机食谱</button>
+		<div id="loading">加载中...</div>
+		<div id="mealBox" class="hide">
+			<img id="mealImg" alt="美食图片">
+			<h3 id="mealName"></h3>
+			<div class="info-item"><span>菜系分类：</span><span id="mealCategory"></span></div>
+			<div class="info-item"><span>食材：</span><span id="mealIngredients"></span></div>
+			<div class="step-wrap">
+				<h4>烹饪步骤</h4>
+				<p id="mealStep"></p>
+			</div>
+		</div>
+	</div>
+
+	<script src="meal.js"></script>
+
+
+
+
+
+<div class="gobang-card"><h1>五子棋</h1>
+  <div class="status" id="status">你先行（黑棋）</div>
+  <div class="board-wrap">
+	<div class="board" id="board"></div>
+  </div>
+  <button class="reset-btn" id="resetBtn">重新开局</button>
+</div>
+<script src="gobang.js"></script>
+
+
+
+
+
+
+
+
+<!-- 留言板模块 -->
+<section id="message">
+  <div class="container fade-box">
+	<h2 class="section-title">留言板</h2>
+	<div class="msg-board">
+	  <!-- 发布留言区域 -->
+	  <div class="publishing-box">
+		<textarea id="msgText" placeholder="请输入留言内容..."></textarea>
+		<button id="sendBtn">提交留言</button>
+		<h3 class="list-title">留言列表</h3>
+		<textarea id="msgText1" readonly placeholder="留言列表展示"></textarea>
+	  </div>
+	</div>
+  </div>
+</section>
+
+<script>
+window.addEventListener('load', function() {
+  const inputBox = document.getElementById('msgText');
+  const outputBox = document.getElementById('msgText1');
+  const submitBtn = document.getElementById('sendBtn');
+
+  submitBtn.onclick = function() {
+	const content = inputBox.value.trim();
+	if (!content) {
+	  alert('留言内容不能为空！');
+	  return;
+	}
+
+	const now = new Date().toLocaleString();
+	const newMsg = `【${now}】\n${content}\n——————————————\n`;
+	outputBox.value = newMsg + outputBox.value;
+
+	inputBox.value = '';
+  }
+});
+</script>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
