@@ -129,7 +129,7 @@ hr {
   margin-bottom: 20px;
 }
 
-#city-name {
+#city-name {display: grid; place-items: center; height: 100%; 
   font-size: 1.2rem;
 }
 
