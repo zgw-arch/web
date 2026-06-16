@@ -129,11 +129,17 @@ hr {
   margin-bottom: 20px;
 }
 
-#city-name {display: grid; place-items: center; height: 100%; 
-  font-size: 1.2rem;position: fixed;
-  left: 200px;  /* 距离屏幕左边50像素 */
-
+#city-name {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-size: 1.2rem;
+  position: fixed;
+  left: 200px;
+  top: 0; /* 补充top占满全屏高度，否则height:100%不生效 */
+  pointer-events: none; /* 不干扰页面滚动，可选保留 */
 }
+
 
 
 #c {
