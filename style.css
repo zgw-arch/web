@@ -130,7 +130,9 @@ hr {
 }
 
 #city-name {display: grid; place-items: center; height: 100%; 
-  font-size: 1.2rem;
+  font-size: 1.2rem;position: fixed;
+  left: 200px;  /* 距离屏幕左边50像素 */
+
 }
 
 
