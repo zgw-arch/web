@@ -1,0 +1,210 @@
+/* 根容器#k2 毛玻璃边框卡片，限定作用域，不污染页面其他元素 */
+#k2 {
+	margin: 24px auto;
+	padding: 32px 0;
+	width: min(94%, 820px);
+	box-sizing: border-box;
+	font-family: system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+	color: #ffffff;
+	/* 毛玻璃核心属性 */
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	background: rgba(255, 255, 255, 0.06);
+	/* 渐变发光边框 */
+	border: 1px solid rgba(140, 190, 255, 0.22);
+	border-radius: 18px;
+	/* 柔和外阴影强化玻璃质感 */
+	box-shadow: 
+		0 8px 32px rgba(0, 20, 50, 0.35),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+#k2 * {
+	box-sizing: border-box;
+}
+
+/* 内部包裹容器wrap，统一内边距居中 */
+#k2 .wrap {
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+/* 大标题样式 */
+#k2 h3 {
+	font-size: 38px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	margin: 0 0 32px;
+	color: #fff;
+	text-shadow: 0 0 12px rgba(100, 170, 255, 0.3);
+}
+
+/* 单位设置行 */
+#k2 .set-row {
+	margin-bottom: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+#k2 .set-row label {
+	font-size: 20px;
+	color: #c2d4f5;
+}
+#k2 #unitInput {
+	width: 100%;
+	padding: 12px 16px;
+	font-size: 18px;
+	border: 1px solid rgba(140, 180, 240, 0.35);
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.07);
+	color: #fff;
+	outline: none;
+	transition: all 0.24s ease;
+}
+#k2 #unitInput:focus {
+	border-color: #62a3ff;
+	box-shadow: 0 0 0 3px rgba(98, 163, 255, 0.2);
+	background: rgba(255, 255, 255, 0.11);
+}
+#k2 #unitInput::placeholder {
+	color: #8498c2;
+}
+
+/* 新增行按钮区域 */
+#k2 .btn-group {
+	margin-bottom: 22px;
+}
+#k2 #addRow {
+	padding: 10px 20px;
+	font-size: 18px;
+	border: 1px solid rgba(120, 175, 255, 0.4);
+	background: rgba(90, 160, 255, 0.15);
+	color: #d0e2ff;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: 0.2s all;
+}
+#k2 #addRow:hover {
+	background: rgba(80, 150, 255, 0.28);
+	border-color: #7bb3ff;
+}
+
+/* 表格整体美化 */
+#k2 table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+	margin-bottom: 28px;
+}
+#k2 table thead tr {
+	background: rgba(60, 120, 220, 0.18);
+}
+#k2 table th {
+	padding: 14px 16px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #e0ecff;
+	text-align: left;
+	border: none;
+}
+#k2 table th:first-child {
+	border-radius: 8px 0 0 8px;
+}
+#k2 table th:last-child {
+	border-radius: 0 8px 8px 0;
+}
+
+/* 表格数据行 */
+#k2 table tbody tr {
+	background: rgba(255, 255, 255, 0.05);
+	transition: background 0.2s;
+}
+#k2 table tbody tr:hover {
+	background: rgba(255, 255, 255, 0.09);
+}
+#k2 table tbody td {
+	padding: 10px 14px;
+}
+#k2 table tbody td:first-child {
+	border-radius: 6px 0 0 6px;
+}
+#k2 table tbody td:last-child {
+	border-radius: 0 6px 6px 0;
+}
+
+/* 表格内输入框统一样式 */
+#k2 table input {
+	width: 100%;
+	padding: 10px 14px;
+	font-size: 17px;
+	border: 1px solid rgba(135, 175, 235, 0.3);
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.06);
+	color: #fff;
+	outline: none;
+	transition: all 0.24s ease;
+}
+#k2 table input:focus {
+	border-color: #62a3ff;
+	box-shadow: 0 0 0 2px rgba(98, 163, 255, 0.18);
+	background: rgba(255, 255, 255, 0.1);
+}
+#k2 table input::placeholder {
+	color: #7a8fb8;
+}
+
+/* 生成地图主按钮 */
+#k2 #renderChart {
+	width: 100%;
+	padding: 16px;
+	margin-bottom: 24px;
+	font-size: 22px;
+	font-weight: 500;
+	border: none;
+	border-radius: 10px;
+	background: linear-gradient(130deg, #2776ff, #0054d6);
+	color: #ffffff;
+	cursor: pointer;
+	box-shadow: 0 5px 16px rgba(39, 118, 255, 0.32);
+	transition: all 0.25s ease;
+}
+#k2 #renderChart:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 9px 22px rgba(39, 118, 255, 0.42);
+	background: linear-gradient(130deg, #3681ff, #0c61e3);
+}
+#k2 #renderChart:active {
+	transform: translateY(0);
+}
+
+/* ECharts图表容器 */
+/* ECharts图表容器 纯白背景 */
+#k2 #mapChart {
+	width: 100%;
+	height: 600px;
+	border-radius: 12px;
+	background: #ffffff;
+	border: 1px solid rgba(110, 160, 230, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+	#k2 {
+		margin: 16px auto;
+		border-radius: 14px;
+	}
+	#k2 h3 {
+		font-size: 30px;
+	}
+	#k2 table th {
+		font-size: 16px;
+		padding: 12px 10px;
+	}
+	#k2 #renderChart {
+		font-size: 20px;
+		padding: 14px;
+	}
+	#k2 #mapChart {
+		height: 420px;
+		background: #ffffff;
+	}
+}
