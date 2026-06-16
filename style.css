@@ -133,14 +133,6 @@ hr {
   font-size: 1.2rem;
 }
 
-#detail-btn {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 20px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
 
 #c {
   background: rgba(255, 255, 255, 0.1);
