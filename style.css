@@ -350,7 +350,7 @@ hr {
 }
 
 /* 猫咪图片：内部圆角 */
-#catImg {box-sizing: border-box;
+#catImg {box-sizing: border-box;padding: 20px;
   width: 100%;
   height: 100%;
   object-fit: cover;
